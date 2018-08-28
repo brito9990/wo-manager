@@ -1,0 +1,150 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Work Order Form</title>
+    <meta value="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="work-order.css" /> 
+    <script src="main.js"></script>
+    
+</head>
+<body>
+    <header>
+        <h1 id="title">Electrical Company</h1>
+        <p id="description">Work Order Management</p>
+    </header>
+    <main id="main" class="main-class">
+    <form id="work-order-form"><!--This form collects the job information-->
+        
+        <div id="job-info-section"><!--This is the top section of the work order that collects info about the job-->
+        <fieldset form="work-order-form">
+            <legend>Customer Information</legend>
+            <label id="name-label" for="name" >Name:</label>
+            <input id="name" type="text" placeholder="Customer Name" required>
+            <label id="address-label" for="address">Address:</label>
+            <input id="address" type="text" placeholder="Job Address">
+            <label id="phone-label" for="phone">Phone:</label>
+            <input id="phone" type="tel" placeholder="555-555-5555">
+            <label id="email-label" for="email">Email:</label>
+            <input id="email" type="email" placeholder="user@example.com" required>
+            <label id="postal-code-label" for="postal-code">Postal Code:</label>
+            <input id="postal-code" type="text" placeholder="M4N2N8" >
+            <label id="date-label" for="date">Date:</label>
+            <input id="date" type="date">
+            <label id="ordered-by-label" for="ordered-by">Ordered By:</label>
+            <input id="ordered-by" type ="text">
+            <label id="po-label" for="po">P.O#</label>
+            <input id="po" type="text">
+        </fieldset>
+        </div>
+        
+            <div id="job-type">
+            <fieldset form="work-order-form">
+                <legend>Job Description</legend>
+                <input id="demo" value="demo" type="checkbox">
+                <label id="demo-label" for="demo">Demo</label>
+                <input id="rough-in" value="rough-in" type="checkbox">
+                <label id="rough-in-label" for="rough-in">Rough-In</label>
+                <input id="finishing" value="finishing" type="checkbox">
+                <label id="finishing-label" for="finishing">Finishing</label>
+                <input id="service-call" value="service-call" type="checkbox">
+                <label id="service-call-label" for="service-call">Service Call</label>
+                <input id="service" value="service" type="checkbox">
+                <label id="service-label" for="service">Service</label>
+                <input id="extra" value="extra" type="checkbox">
+                <label id="extra-label" for="extra">EXTRA</label>
+                <input id="commercial" value="commercial" type="checkbox">
+                <label id="commercial-label" for="commercial">Commercial</label>
+                <input id="residential" value="residential" type="checkbox">
+                <label id="residential-label" for="residential">Residential</label>
+            </fieldset>
+            </div>
+            
+            <div id="job-desc-section"><!--Job type, job summary, job checklist and lockbox code are in this section-->
+            <div id="job-summary">
+                <textarea id="job-summary-area" form="survery-form" rows="8" placeholder="Enter Job Summary" ></textarea>
+            </div>
+            <div id="job-checklist">
+                <fieldset form="work-order-form">
+                    <legend>Job Checklist</legend>
+                    <input id="photo-sent" value="0" type="checkbox">
+                    <label id="photo-sent-label" for="photo-sent">Photo Sent</label><br>
+                    <input id="inspection-checklist" value="0" type="checkbox">
+                    <label id="inspection-checklist-label" for="inspection-checklist">Inspection Checklist</label><br>
+                    <input id="inspection-booked" value="0" type="checkbox">
+                    <label id="inspection-booked-label" for="inspection-booked">Inspection Booked</label><br>
+                    <input id="customer-contacted" value="0" type="checkbox">
+                    <label id="customer-contacted-label" for="customer-contacted">Customer Contacted</label><br>
+                </fieldset>
+            </div>
+            <div id="lockbox">
+                <fieldset form="work-order-form">
+                    <legend>Lock Box Code</legend>
+                    <input type="text">
+                </fieldset>
+
+            </div>
+        </div>
+    
+        <div id="parts-list"><!--Dynamic parts list-->
+          <table id="parts-table">
+              <tr>
+                  <th>Quantity</th>
+                  <th>Part Number</th>
+                  <th>Decription</th>
+              </tr>
+        
+              <tr>
+                  <th><input type="number" min="0"></th>
+                  <th id="dropdown">
+                      <select>
+                          <option value="device-box">Device Box</option>
+                          <option value="ceiling-box">Ceiling Box</option>
+                          <option value="conduit">Conduit</option>
+                          <option value="wire">Wire</option>
+                      </select>
+                  </th>
+                  <th><input type="text"></th>
+              </tr>
+          </table>
+        </div>
+        <div id="employee-work-info"><!--Who worked when - to be updated-->
+            <fieldset form="work-order-form">
+                <legend>Employee(s) Who Worked</legend>
+                <label for="employee-name">Employee Name</label>
+                <input type="text" id="employee-name" name="empployee-name">
+                <label for="employee-date">Date</label>
+                <input type="date" id="employee-date" name="employee-date">
+                <label for="employee-hours" >Number of Hours Worked</label>
+                <input type="number" id="employee-hours" name="employee-hours" min="0">
+            </fieldset>
+
+        </div>
+        <!--
+        <div id="materials-list">Additional materials used
+
+        </div>
+        -->
+        <div id="odometer"><!--Odometer readings-->
+            <fieldset form="return-survey">
+                <legend>Odometer Readings</legend>
+                Odometer Start - km<input name="odometer-start" type="text"> <br>
+                Odometer End - km<input name="odometer-end" type="text"><br>
+            </fieldset>
+        </div>
+        <div id="return-survey"><!--Return to job - yes/no-->
+            <fieldset form="work-order-form">
+                <legend>Do you have to return?</legend>
+                <input type="radio" name="return" value="no">No
+                <input type="radio" name="return" value="yes">Yes
+                <input class="reveal-if-active" type="date">
+            </fieldset>
+
+        </div>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+    </main>
+    <footer id="footer"></footer>
+</body>
+</html>
